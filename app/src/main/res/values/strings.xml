@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">GoodsHoffTest</string>
+    <string name="btn_go_to_screen_list_of_goods">Перейти в каталог</string>
+    <string name="main_screen">Главная</string>
+    <string name="sale">17%</string>
+    <string name="title">описание</string>
+    <string name="price">цена</string>
+    <string name="isAvailable">доступен/не доступен</string>
+    <string name="rub_sign">" ₽"</string>
+</resources>
