@@ -8,7 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class RetrofitInstance {
     private static Retrofit retrofit = null;
 
-    private static final String BASE_URL = "https://hoff.ru/";
+    private static final String BASE_URL = "https://hoff.ru/api/v2/";
 
     public static CouchesService getService() {
 

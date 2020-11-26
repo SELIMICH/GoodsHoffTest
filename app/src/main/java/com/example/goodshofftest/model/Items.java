@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class Items {
+public class Items implements Comparable<Items> {
     @SerializedName("id")
     @Expose
     private String id;
@@ -181,5 +181,10 @@ public class Items {
 
     public void setCategoryId(String categoryId) {
         this.categoryId = categoryId;
+    }
+
+    @Override
+    public int compareTo(Items o) {
+        return o.getPrices().getNew() - this.getPrices().getNew();
     }
 }

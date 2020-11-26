@@ -1,10 +1,28 @@
 <resources>
     <string name="app_name">GoodsHoffTest</string>
+    <string name="title_Hoff">Угловые диваны</string>
     <string name="btn_go_to_screen_list_of_goods">Перейти в каталог</string>
     <string name="main_screen">Главная</string>
     <string name="sale">17%</string>
     <string name="title">описание</string>
+    <string name="status_text">статус</string>
     <string name="price">цена</string>
+    <string name="old_price">старая цена</string>
     <string name="isAvailable">доступен/не доступен</string>
     <string name="rub_sign">" ₽"</string>
+    <string name="numberOfReviews">(15)</string>
+
+    <string name="action_cheap">Сначала дешевые</string>
+    <string name="action_expensive">Сначала дорогие</string>
+    <string name="action_sale">По скидкам</string>
+    <string name="action_popular">Популярные товары</string>
+    <string name="sort">sort</string>
+    <string name="appName">Угловые диваны</string>
+
+    <string-array name="actions">
+        <item>Сначала дешевые</item>
+        <item>Сначала дорогие</item>
+        <item>По скидкам</item>
+        <item>Популярные товары</item>
+    </string-array>
 </resources>

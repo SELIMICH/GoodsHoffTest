@@ -6,10 +6,10 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="@string/app_name"
+        android:label="@string/title_Hoff"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.GoodsHoffTest">
+        android:theme="@style/Theme.AppCompat.DayNight.NoActionBar">
         <activity android:name=".screens.hoffgoodsactivity.HoffGoodsList" />
         <activity android:name=".screens.mainactivity.MainActivity">
             <intent-filter>

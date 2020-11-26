@@ -12,7 +12,7 @@ public class GoodsInfo {
     @SerializedName("plashka")
     @Expose
     private Object plashka;
-    @SerializedName("couches")
+    @SerializedName("items")
     @Expose
     private List<Items> items = null;
     @SerializedName("relatedCategories")
