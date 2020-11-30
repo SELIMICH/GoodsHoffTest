@@ -91,7 +91,7 @@ public class GoodsAdapter extends RecyclerView.Adapter<GoodsAdapter.GoodsViewHol
                 backgroundOfmBtn_add_to_favorite_Is_Fill = true;
 
             }else {
-                mBtn_add_to_favorite.setBackgroundResource(R.drawable.favorite_fill);
+                mBtn_add_to_favorite.setBackgroundResource(R.drawable.ic_favorite_fill);
                 backgroundOfmBtn_add_to_favorite_Is_Fill = false;
             }
 
@@ -128,7 +128,7 @@ public class GoodsAdapter extends RecyclerView.Adapter<GoodsAdapter.GoodsViewHol
                 @Override
                 public void onClick(View v) {
                     if (!backgroundOfmBtn_add_to_favorite_Is_Fill){
-                        mBtn_add_to_favorite.setBackgroundResource(R.drawable.favorite_fill);
+                        mBtn_add_to_favorite.setBackgroundResource(R.drawable.ic_favorite_fill);
                         App.saveData(items,mItemsImage.getContext(), true);
                         backgroundOfmBtn_add_to_favorite_Is_Fill = true;
                     }else {

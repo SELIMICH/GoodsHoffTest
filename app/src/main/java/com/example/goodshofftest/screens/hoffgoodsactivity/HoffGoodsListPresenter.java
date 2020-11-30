@@ -3,6 +3,7 @@ package com.example.goodshofftest.screens.hoffgoodsactivity;
 import com.example.goodshofftest.model.GoodsInfo;
 import com.example.goodshofftest.service.CouchesService;
 import com.example.goodshofftest.service.RetrofitInstance;
+import com.example.goodshofftest.service.SortBy;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
@@ -16,23 +17,74 @@ public class HoffGoodsListPresenter {
         mView = view;
     }
 
-   public void loadData() {
+   public void loadData(String getSortedGoods) {
 
         CouchesService couchesService = RetrofitInstance.getService();
-        couchesService.getItems()
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new DisposableSingleObserver<GoodsInfo>() {
-                    @Override
-                    public void onSuccess(@NonNull GoodsInfo goodsInfo) {
-                        mView.showData(goodsInfo.getItems());
-                    }
+        if (getSortedGoods.equals("getGoodsSortByPopular")) {
+            couchesService.getItemsSortByPopular()
+                    .subscribeOn(Schedulers.io())
+                    .observeOn(AndroidSchedulers.mainThread())
+                    .subscribe(new DisposableSingleObserver<GoodsInfo>() {
+                        @Override
+                        public void onSuccess(@NonNull GoodsInfo goodsInfo) {
+                            mView.showData(goodsInfo.getItems());
+                        }
 
-                    @Override
-                    public void onError(@NonNull Throwable e) {
-                        mView.showError(e);
-                    }
-                });
+                        @Override
+                        public void onError(@NonNull Throwable e) {
+                            mView.showError(e);
+                        }
+                    });
+        }
+       if (getSortedGoods.equals("getGoodsSortByPriceDesc")) {
+           couchesService.getItemsSortByPriceDesc()
+                   .subscribeOn(Schedulers.io())
+                   .observeOn(AndroidSchedulers.mainThread())
+                   .subscribe(new DisposableSingleObserver<GoodsInfo>() {
+                       @Override
+                       public void onSuccess(@NonNull GoodsInfo goodsInfo) {
+                           mView.showData(goodsInfo.getItems());
+                       }
+
+                       @Override
+                       public void onError(@NonNull Throwable e) {
+                           mView.showError(e);
+                       }
+                   });
+       }
+       if (getSortedGoods.equals("getGoodsSortByPriceAsc")) {
+           couchesService.getItemsSortByPriceAsc()
+                   .subscribeOn(Schedulers.io())
+                   .observeOn(AndroidSchedulers.mainThread())
+                   .subscribe(new DisposableSingleObserver<GoodsInfo>() {
+                       @Override
+                       public void onSuccess(@NonNull GoodsInfo goodsInfo) {
+                           mView.showData(goodsInfo.getItems());
+                       }
+
+                       @Override
+                       public void onError(@NonNull Throwable e) {
+                           mView.showError(e);
+                       }
+                   });
+       }
+       if (getSortedGoods.equals("getGoodsSortByDiscount")) {
+           couchesService.getItemsSortByDiscount()
+                   .subscribeOn(Schedulers.io())
+                   .observeOn(AndroidSchedulers.mainThread())
+                   .subscribe(new DisposableSingleObserver<GoodsInfo>() {
+                       @Override
+                       public void onSuccess(@NonNull GoodsInfo goodsInfo) {
+                           mView.showData(goodsInfo.getItems());
+                       }
+
+                       @Override
+                       public void onError(@NonNull Throwable e) {
+                           mView.showError(e);
+                       }
+                   });
+       }
+
 
     }
 

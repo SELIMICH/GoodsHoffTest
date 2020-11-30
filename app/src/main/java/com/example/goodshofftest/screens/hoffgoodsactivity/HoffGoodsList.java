@@ -15,7 +15,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.goodshofftest.R;
 import com.example.goodshofftest.adapters.GoodsAdapter;
+import com.example.goodshofftest.model.EmulateResponseManager;
+import com.example.goodshofftest.model.GoodsInfo;
 import com.example.goodshofftest.model.Items;
+import com.example.goodshofftest.service.SortBy;
+import com.example.goodshofftest.utils.auto_loading.AutoLoadingRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,6 +29,10 @@ public class HoffGoodsList extends AppCompatActivity implements HoffGoodsListVie
     private GoodsAdapter mAdapter;
     private RecyclerView mRecyclerViewGoods;
     private List<Items> mItemsSort;
+    private HoffGoodsListPresenter mHoffGoodsListPresenter;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,14 +46,14 @@ public class HoffGoodsList extends AppCompatActivity implements HoffGoodsListVie
         toolbar.setNavigationOnClickListener(v -> {
             onBackPressed();
         });
-        HoffGoodsListPresenter mHoffGoodsListPresenter = new HoffGoodsListPresenter(this);
+        mHoffGoodsListPresenter = new HoffGoodsListPresenter(this);
         mRecyclerViewGoods = findViewById(R.id.recycler_view_couches);
         mAdapter = new GoodsAdapter(new ArrayList<>());
         RecyclerView.LayoutManager layoutManager =
                 new GridLayoutManager(HoffGoodsList.this, 2);
         mRecyclerViewGoods.setLayoutManager(layoutManager);
         mRecyclerViewGoods.setAdapter(mAdapter);
-        mHoffGoodsListPresenter.loadData();
+        mHoffGoodsListPresenter.loadData("getGoodsSortByPopular");
     }
     @Override
     public void showData(List<Items> items) {
@@ -73,19 +81,19 @@ public class HoffGoodsList extends AppCompatActivity implements HoffGoodsListVie
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_cheap:
-                GoodsAdapter.sortByCheapGoods(mItemsSort);
+                mHoffGoodsListPresenter.loadData("getGoodsSortByPriceAsc");
                 mAdapter.notifyDataSetChanged();
                 break;
             case R.id.action_expensive:
-                GoodsAdapter.sortByExpensiveGoods(mItemsSort);
+                mHoffGoodsListPresenter.loadData("getGoodsSortByPriceDesc");
                 mAdapter.notifyDataSetChanged();
                 break;
             case R.id.action_sale:
-                GoodsAdapter.sortBySaleGoods(mItemsSort);
+                mHoffGoodsListPresenter.loadData("getGoodsSortByDiscount");
                 mAdapter.notifyDataSetChanged();
                 break;
             case R.id.action_popular:
-                GoodsAdapter.sortByPopularGoods(mItemsSort);
+                mHoffGoodsListPresenter.loadData("getGoodsSortByPopular");
                 mAdapter.notifyDataSetChanged();
                 break;
         }
