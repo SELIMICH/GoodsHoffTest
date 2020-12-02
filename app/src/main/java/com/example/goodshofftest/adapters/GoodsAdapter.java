@@ -2,7 +2,6 @@ package com.example.goodshofftest.adapters;
 
 import android.annotation.SuppressLint;
 import android.graphics.Paint;
-import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +9,6 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,12 +18,7 @@ import com.bumptech.glide.request.RequestOptions;
 import com.example.goodshofftest.R;
 import com.example.goodshofftest.database.App;
 import com.example.goodshofftest.model.Items;
-import com.example.goodshofftest.screens.hoffgoodsactivity.HoffGoodsList;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 
 public class GoodsAdapter extends RecyclerView.Adapter<GoodsAdapter.GoodsViewHolder> {
@@ -139,35 +132,5 @@ public class GoodsAdapter extends RecyclerView.Adapter<GoodsAdapter.GoodsViewHol
                 }
             });
         }
-
-
     }
-        //сортировка товаров по: сначала дешевые
-        public static List<Items> sortByCheapGoods(List<Items> items) {
-            Collections.sort(items, Collections.reverseOrder());
-            return items;
-        }
-
-        //сортировка товаров по: сначала дорогие
-        public static List<Items> sortByExpensiveGoods(List<Items> items) {
-            Collections.sort(items);
-            return items;
-        }
-
-        //сортировка товаров по скидкам
-        public static List<Items> sortBySaleGoods(List<Items> items) {
-            Comparator<Items> comparator = (left, right) -> (100 - ((right.getPrices().getNew() * 100) / right.getPrices().getOld())) -
-                                                            (100 - (( left.getPrices().getNew() * 100) / left.getPrices().getOld()));
-            Collections.sort(items, comparator);
-            return items;
-        }
-
-        //сортировка товаров по: сначала популярные
-        public static List<Items> sortByPopularGoods(List<Items> items) {
-            Comparator<Items> comparator = (left, right) ->
-                    right.getNumberOfReviews() - left.getNumberOfReviews();
-
-            Collections.sort(items, comparator);
-            return items;
-        }
 }

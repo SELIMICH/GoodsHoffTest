@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.goodshofftest.R;
 import com.example.goodshofftest.adapters.GoodsAdapter;
+import com.example.goodshofftest.adapters.SimpleDividerItemDecoration;
 import com.example.goodshofftest.model.EmulateResponseManager;
 import com.example.goodshofftest.model.GoodsInfo;
 import com.example.goodshofftest.model.Items;
@@ -53,6 +54,7 @@ public class HoffGoodsList extends AppCompatActivity implements HoffGoodsListVie
                 new GridLayoutManager(HoffGoodsList.this, 2);
         mRecyclerViewGoods.setLayoutManager(layoutManager);
         mRecyclerViewGoods.setAdapter(mAdapter);
+        mRecyclerViewGoods.addItemDecoration(new SimpleDividerItemDecoration(this));
         mHoffGoodsListPresenter.loadData("getGoodsSortByPopular");
     }
     @Override
