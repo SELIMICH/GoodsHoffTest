@@ -18,11 +18,12 @@
     <string name="action_popular">Популярные товары</string>
     <string name="sort">sort</string>
     <string name="appName">Угловые диваны</string>
+    <string name="actionbar_spinner">ActionBar Spinner</string>
 
     <string-array name="actions">
+        <item>Популярные товары</item>
         <item>Сначала дешевые</item>
         <item>Сначала дорогие</item>
         <item>По скидкам</item>
-        <item>Популярные товары</item>
     </string-array>
 </resources>

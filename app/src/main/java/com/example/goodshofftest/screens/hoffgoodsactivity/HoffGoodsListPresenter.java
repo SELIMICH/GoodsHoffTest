@@ -3,7 +3,6 @@ package com.example.goodshofftest.screens.hoffgoodsactivity;
 import com.example.goodshofftest.model.GoodsInfo;
 import com.example.goodshofftest.service.CouchesService;
 import com.example.goodshofftest.service.RetrofitInstance;
-import com.example.goodshofftest.service.SortBy;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.annotations.NonNull;
@@ -20,7 +19,7 @@ public class HoffGoodsListPresenter {
    public void loadData(String getSortedGoods) {
 
         CouchesService couchesService = RetrofitInstance.getService();
-        if (getSortedGoods.equals("getGoodsSortByPopular")) {
+        if (getSortedGoods.equals("Популярные товары")) {
             couchesService.getItemsSortByPopular()
                     .subscribeOn(Schedulers.io())
                     .observeOn(AndroidSchedulers.mainThread())
@@ -36,7 +35,7 @@ public class HoffGoodsListPresenter {
                         }
                     });
         }
-       if (getSortedGoods.equals("getGoodsSortByPriceDesc")) {
+       if (getSortedGoods.equals("Сначала дорогие")) {
            couchesService.getItemsSortByPriceDesc()
                    .subscribeOn(Schedulers.io())
                    .observeOn(AndroidSchedulers.mainThread())
@@ -52,7 +51,7 @@ public class HoffGoodsListPresenter {
                        }
                    });
        }
-       if (getSortedGoods.equals("getGoodsSortByPriceAsc")) {
+       if (getSortedGoods.equals("Сначала дешевые")) {
            couchesService.getItemsSortByPriceAsc()
                    .subscribeOn(Schedulers.io())
                    .observeOn(AndroidSchedulers.mainThread())
@@ -68,7 +67,7 @@ public class HoffGoodsListPresenter {
                        }
                    });
        }
-       if (getSortedGoods.equals("getGoodsSortByDiscount")) {
+       if (getSortedGoods.equals("По скидкам")) {
            couchesService.getItemsSortByDiscount()
                    .subscribeOn(Schedulers.io())
                    .observeOn(AndroidSchedulers.mainThread())
@@ -86,7 +85,7 @@ public class HoffGoodsListPresenter {
        }
 
 
-    }
+   }
 
 
 }
